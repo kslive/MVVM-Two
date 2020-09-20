@@ -10,5 +10,5 @@ import Foundation
 protocol TableViewModelType {
     
     var numberOfRows: Int { get }
-    var profiles: [Profile] { get }
+    func cellViewModel(forIndexPath indexPath: IndexPath) -> TableViewCellViewModelType? 
 }

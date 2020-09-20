@@ -19,4 +19,11 @@ class ViewModel: TableViewModelType {
         Profile(name: "Alex", secondName: "Smith", age: 11),
         Profile(name: "Mark", secondName: "Smith", age: 23)
     ]
+    
+    func cellViewModel(forIndexPath indexPath: IndexPath) -> TableViewCellViewModelType? {
+        
+        let profile = profiles[indexPath.row]
+        
+        return TableViewCellViewModel(profile: profile)
+    }
 }

@@ -26,13 +26,10 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? TableViewCell
-        guard let tableViewCell = cell,
-              let viewModel = viewModel else { return UITableViewCell() }
-        let profile = viewModel.profiles[indexPath.row]
+        guard let tableViewCell = cell, let viewModel = viewModel else { return UITableViewCell() }
+        let cellViewModel = viewModel.cellViewModel(forIndexPath: indexPath)
         
-        tableViewCell.age.text = "\(profile.age)"
-        tableViewCell.name.text = profile.name
-        tableViewCell.secondName.text = profile.secondName
+        tableViewCell.viewModel = cellViewModel
         
         return tableViewCell
     }
